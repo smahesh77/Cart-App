@@ -1,3 +1,4 @@
+import 'package:cart_app/create.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -16,13 +17,16 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text("MyCart"),
       ),
-      body: Column(
-        children: [
-          ElevatedButton(onPressed: () {}, child: Text("Create")),
-          ElevatedButton(onPressed: () {}, child: Text("Read")),
-          ElevatedButton(onPressed: () {}, child: Text("Edit")),
-          ElevatedButton(onPressed: () {}, child: Text("Delete")),
-        ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => Create()));}, child: Text("Create")),
+            ElevatedButton(onPressed: () {}, child: Text("Read")),
+            ElevatedButton(onPressed: () {}, child: Text("Update")),
+            ElevatedButton(onPressed: () {}, child: Text("Delete")),
+          ],
+        ),
       ),
     );
   }
