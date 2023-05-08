@@ -28,11 +28,11 @@ class _CreateState extends State<Create> {
           ),
           TextField(
             controller: priceCon,
-            decoration: const InputDecoration(hintText: "Enter name"),
+            decoration: const InputDecoration(hintText: "Enter desc"),
           ),
           TextField(
             controller: descCon,
-            decoration: const InputDecoration(hintText: "Enter name"),
+            decoration: const InputDecoration(hintText: "Enter price"),
           ),
           const SizedBox(
             height: 20,
@@ -44,7 +44,9 @@ class _CreateState extends State<Create> {
                   "pprice": priceCon.text,
                   "pdesc": descCon.text
                 };
-                Api.create(data);//to call our aoi class's create function and pass the data we got from our textfields 
+                Api.create(
+                    data); //to call our aoi class's create function and pass the data we got from our textfields
+                Navigator.pop(context);
               },
               child: Text("Create")),
         ],

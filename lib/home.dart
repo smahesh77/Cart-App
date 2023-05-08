@@ -1,7 +1,6 @@
 import 'package:cart_app/create.dart';
+import 'package:cart_app/fetch.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -15,16 +14,26 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("MyCart"),
+        title: const Text("Cart Simulator"),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => Create()));}, child: Text("Create")),
-            ElevatedButton(onPressed: () {}, child: Text("Read")),
-            ElevatedButton(onPressed: () {}, child: Text("Update")),
-            ElevatedButton(onPressed: () {}, child: Text("Delete")),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const Create()));
+                },
+                child: const Text("Create")),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const Fetchdata()));
+                },
+                child: const Text("Read")),
+            ElevatedButton(onPressed: () {}, child: const Text("Update")),
+            ElevatedButton(onPressed: () {}, child: const Text("Delete")),
           ],
         ),
       ),
