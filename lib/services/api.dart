@@ -32,25 +32,40 @@ class Api {
 
   //to fetch data from db
   static getPro() async {
-    List<Product> products =[]; //this will create a array of product class objects
+    List<Product> products =
+        []; //this will create a array of product class objects
     final response = await http.get(Uri.parse(get));
 
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body);
       print("test");
       data['products'].forEach((value) => {
-            print( value['pname']),
+            print(value['pname']),
             //will go through each product recevied from server and it will be stored in value
-            products.add(Product(
-                name: value['pname'].toString(),
-                price: value['pprice'].toString(),
-                desc: value['pdesc'].toString())), //creats a product object and stores it to the list
-            print(products[0].name)    
+            products.add(
+              Product(
+                  name: value['pname'].toString(),
+                  price: value['pprice'].toString(),
+                  desc: value['pdesc'].toString(),
+                  id: value['id'].toString()),
+            ), //creats a product object and stores it to the list
+            print(products[0].name)
           });
       print(products);
       return products;
     } else {
       return [];
+    }
+  }
+
+  static update(id, data) async {
+    final put = baseUrl + "put/${id}";
+
+    final response = await http.put(Uri.parse(put), body: data);
+    if (response.statusCode == 200) {
+      print("updated ${jsonDecode(response.body)}");
+    } else {
+      print("failed to update");
     }
   }
 }

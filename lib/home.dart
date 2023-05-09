@@ -1,5 +1,6 @@
 import 'package:cart_app/create.dart';
 import 'package:cart_app/fetch.dart';
+import 'package:cart_app/update.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -32,7 +33,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       MaterialPageRoute(builder: (context) => const Fetchdata()));
                 },
                 child: const Text("Read")),
-            ElevatedButton(onPressed: () {}, child: const Text("Update")),
+            ElevatedButton(onPressed: () {Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const Update()));}, child: const Text("Update")),
             ElevatedButton(onPressed: () {}, child: const Text("Delete")),
           ],
         ),
