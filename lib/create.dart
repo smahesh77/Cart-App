@@ -27,11 +27,11 @@ class _CreateState extends State<Create> {
             decoration: const InputDecoration(hintText: "Enter name"),
           ),
           TextField(
-            controller: priceCon,
+            controller: descCon,
             decoration: const InputDecoration(hintText: "Enter desc"),
           ),
           TextField(
-            controller: descCon,
+            controller: priceCon,
             decoration: const InputDecoration(hintText: "Enter price"),
           ),
           const SizedBox(

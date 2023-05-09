@@ -22,9 +22,8 @@ class Api {
           body: jsonEncode(pbody));
 
       if (response.statusCode == 200) {
-        print("response recived");
         var data = jsonDecode(response.body.toString());
-        print(data);
+        print("Flutter:" + data);
       }
     } catch (err) {
       print(err);
@@ -33,20 +32,20 @@ class Api {
 
   //to fetch data from db
   static getPro() async {
-    List<Product> products =
-        []; //this will create a array of product class objects
+    List<Product> products =[]; //this will create a array of product class objects
     final response = await http.get(Uri.parse(get));
 
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body);
-
+      print("test");
       data['products'].forEach((value) => {
-            //will go throw each product recevied from server and it will be stored in value
+            print( value['pname']),
+            //will go through each product recevied from server and it will be stored in value
             products.add(Product(
-                name: value['pname'],
-                price: value['pprice'],
-                desc: value[
-                    'pdesc'])) //creats a product object and stores it to the list
+                name: value['pname'].toString(),
+                price: value['pprice'].toString(),
+                desc: value['pdesc'].toString())), //creats a product object and stores it to the list
+            print(products[0].name)    
           });
       print(products);
       return products;

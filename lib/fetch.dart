@@ -36,7 +36,7 @@ class _FetchdataState extends State<Fetchdata> {
               itemBuilder: (BuildContext context, int index) {
                 return ListTile(
                   leading: Icon(Icons.storage),
-                  title: Text(pdata[index].name),
+                  title: Text('${pdata[index].name}'),
                   subtitle: Text(pdata[index].desc),
                   trailing: Text("\$ ${pdata[index].price}"),
                 );
