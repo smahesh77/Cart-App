@@ -1,4 +1,5 @@
 import 'package:cart_app/create.dart';
+import 'package:cart_app/delete.dart';
 import 'package:cart_app/fetch.dart';
 import 'package:cart_app/update.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: const Text("Read")),
             ElevatedButton(onPressed: () {Navigator.push(context,
                       MaterialPageRoute(builder: (context) => const Update()));}, child: const Text("Update")),
-            ElevatedButton(onPressed: () {}, child: const Text("Delete")),
+            ElevatedButton(onPressed: () {Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const delete()));},  child: const Text("Delete")),
           ],
         ),
       ),

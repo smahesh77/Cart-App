@@ -59,13 +59,26 @@ class Api {
   }
 
   static update(id, data) async {
-    final put = baseUrl + "put/${id}";
+    final put = baseUrl + "put/" + id;
+    print(put);
 
-    final response = await http.put(Uri.parse(put), body: data);
+    final response = await http.post(Uri.parse(put), body: data);
     if (response.statusCode == 200) {
       print("updated ${jsonDecode(response.body)}");
     } else {
       print("failed to update");
+    }
+  }
+
+  static del(id) async {
+    final del = baseUrl + "del/" + id;
+
+    final res = await http.post((Uri.parse(del)));
+
+    if (res.statusCode == 204) {
+      print(jsonDecode(res.body));
+    } else {
+      print("failed to delete");
     }
   }
 }
